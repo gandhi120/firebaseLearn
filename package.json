@@ -7,11 +7,21 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "common": "rm -rf node_modules/ && sleep 10 && npm install --legacy-peer-deps && npm run podSetup",
+    "commitNoVerify": "git commit -m 'bypassed in commit' --no-verify",
+    "updateAsset": "npx react-native-asset",
+    "podInstall": "cd ios && pod install && cd ../",
+    "cleanGradle": "cd android && ./gradlew clean && cd ../",
+    "podUnInstall": "cd ios && pod deintegrate && cd ../",
+    "podSetup": "npm run podUnInstall && npm run podInstall"
   },
   "dependencies": {
+    "@react-native-firebase/analytics": "21.0.0",
+    "@react-native-firebase/app": "21.0.0",
     "react": "18.3.1",
-    "react-native": "0.75.4"
+    "react-native": "0.75.4",
+    "react-native-onesignal": "5.2.5"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
